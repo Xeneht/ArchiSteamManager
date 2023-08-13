@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form3));
             this.label1 = new System.Windows.Forms.Label();
             this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
             this.pathTextBox = new Guna.UI2.WinForms.Guna2TextBox();
@@ -43,11 +44,12 @@
             this.changeNameButton = new Guna.UI2.WinForms.Guna2Button();
             this.nameTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
-            this.filesHelp = new System.Windows.Forms.PictureBox();
-            this.gamesHelp = new System.Windows.Forms.PictureBox();
             this.resetConfigButton = new Guna.UI2.WinForms.Guna2Button();
             this.clearLogsButton = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.openLogs = new Guna.UI2.WinForms.Guna2Button();
+            this.filesHelp = new System.Windows.Forms.PictureBox();
+            this.gamesHelp = new System.Windows.Forms.PictureBox();
+            this.removeAllAccounts = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.filesHelp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gamesHelp)).BeginInit();
             this.SuspendLayout();
@@ -59,7 +61,7 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 16);
+            this.label1.Size = new System.Drawing.Size(54, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Settings";
             // 
@@ -82,6 +84,8 @@
             this.pathTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.pathTextBox.FillColor = System.Drawing.Color.Transparent;
             this.pathTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.pathTextBox.ForeColor = System.Drawing.Color.Silver;
+            this.pathTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(86)))), ((int)(((byte)(118)))));
             this.pathTextBox.Location = new System.Drawing.Point(15, 61);
             this.pathTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pathTextBox.Name = "pathTextBox";
@@ -104,7 +108,7 @@
             this.changePathButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.changePathButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.changePathButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(110)))), ((int)(((byte)(148)))));
-            this.changePathButton.Font = new System.Drawing.Font("Segoe UI", 7F);
+            this.changePathButton.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.changePathButton.ForeColor = System.Drawing.Color.White;
             this.changePathButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(86)))), ((int)(((byte)(118)))));
             this.changePathButton.Location = new System.Drawing.Point(242, 61);
@@ -134,10 +138,10 @@
             this.closeButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.closeButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.closeButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(110)))), ((int)(((byte)(148)))));
-            this.closeButton.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.closeButton.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.closeButton.ForeColor = System.Drawing.Color.White;
             this.closeButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(86)))), ((int)(((byte)(118)))));
-            this.closeButton.Location = new System.Drawing.Point(15, 240);
+            this.closeButton.Location = new System.Drawing.Point(16, 273);
             this.closeButton.Name = "closeButton";
             this.closeButton.Size = new System.Drawing.Size(333, 31);
             this.closeButton.TabIndex = 14;
@@ -164,7 +168,7 @@
             this.changeGamesButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.changeGamesButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.changeGamesButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(110)))), ((int)(((byte)(148)))));
-            this.changeGamesButton.Font = new System.Drawing.Font("Segoe UI", 7F);
+            this.changeGamesButton.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.changeGamesButton.ForeColor = System.Drawing.Color.White;
             this.changeGamesButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(86)))), ((int)(((byte)(118)))));
             this.changeGamesButton.Location = new System.Drawing.Point(242, 114);
@@ -186,6 +190,8 @@
             this.gamesTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.gamesTextBox.FillColor = System.Drawing.Color.Transparent;
             this.gamesTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.gamesTextBox.ForeColor = System.Drawing.Color.Silver;
+            this.gamesTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(86)))), ((int)(((byte)(118)))));
             this.gamesTextBox.Location = new System.Drawing.Point(15, 114);
             this.gamesTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gamesTextBox.MaxLength = 100;
@@ -218,7 +224,7 @@
             this.changeNameButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.changeNameButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.changeNameButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(110)))), ((int)(((byte)(148)))));
-            this.changeNameButton.Font = new System.Drawing.Font("Segoe UI", 7F);
+            this.changeNameButton.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.changeNameButton.ForeColor = System.Drawing.Color.White;
             this.changeNameButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(86)))), ((int)(((byte)(118)))));
             this.changeNameButton.Location = new System.Drawing.Point(242, 167);
@@ -240,6 +246,8 @@
             this.nameTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.nameTextBox.FillColor = System.Drawing.Color.Transparent;
             this.nameTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.nameTextBox.ForeColor = System.Drawing.Color.Silver;
+            this.nameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(86)))), ((int)(((byte)(118)))));
             this.nameTextBox.Location = new System.Drawing.Point(15, 167);
             this.nameTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.nameTextBox.MaxLength = 16;
@@ -251,6 +259,72 @@
             this.nameTextBox.TabIndex = 19;
             this.nameTextBox.TabStop = false;
             this.nameTextBox.Load += new System.EventHandler(this.nameTextBox_Load);
+            // 
+            // resetConfigButton
+            // 
+            this.resetConfigButton.Animated = true;
+            this.resetConfigButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(110)))), ((int)(((byte)(148)))));
+            this.resetConfigButton.BorderRadius = 5;
+            this.resetConfigButton.BorderThickness = 1;
+            this.resetConfigButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.resetConfigButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.resetConfigButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.resetConfigButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.resetConfigButton.FillColor = System.Drawing.Color.Transparent;
+            this.resetConfigButton.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.resetConfigButton.ForeColor = System.Drawing.Color.White;
+            this.resetConfigButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(21)))));
+            this.resetConfigButton.HoverState.ForeColor = System.Drawing.Color.White;
+            this.resetConfigButton.Location = new System.Drawing.Point(16, 207);
+            this.resetConfigButton.Name = "resetConfigButton";
+            this.resetConfigButton.Size = new System.Drawing.Size(106, 27);
+            this.resetConfigButton.TabIndex = 23;
+            this.resetConfigButton.Text = "Reset Config";
+            this.resetConfigButton.Click += new System.EventHandler(this.resetConfigButton_Click);
+            // 
+            // clearLogsButton
+            // 
+            this.clearLogsButton.Animated = true;
+            this.clearLogsButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(110)))), ((int)(((byte)(148)))));
+            this.clearLogsButton.BorderRadius = 5;
+            this.clearLogsButton.BorderThickness = 1;
+            this.clearLogsButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.clearLogsButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.clearLogsButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.clearLogsButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.clearLogsButton.FillColor = System.Drawing.Color.Transparent;
+            this.clearLogsButton.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.clearLogsButton.ForeColor = System.Drawing.Color.White;
+            this.clearLogsButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(21)))));
+            this.clearLogsButton.HoverState.ForeColor = System.Drawing.Color.White;
+            this.clearLogsButton.Location = new System.Drawing.Point(243, 207);
+            this.clearLogsButton.Name = "clearLogsButton";
+            this.clearLogsButton.Size = new System.Drawing.Size(105, 27);
+            this.clearLogsButton.TabIndex = 24;
+            this.clearLogsButton.Text = "Clear Logs";
+            this.clearLogsButton.Click += new System.EventHandler(this.clearLogsButton_Click);
+            // 
+            // openLogs
+            // 
+            this.openLogs.Animated = true;
+            this.openLogs.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(110)))), ((int)(((byte)(148)))));
+            this.openLogs.BorderRadius = 5;
+            this.openLogs.BorderThickness = 1;
+            this.openLogs.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.openLogs.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.openLogs.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.openLogs.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.openLogs.FillColor = System.Drawing.Color.Transparent;
+            this.openLogs.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.openLogs.ForeColor = System.Drawing.Color.White;
+            this.openLogs.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(21)))));
+            this.openLogs.HoverState.ForeColor = System.Drawing.Color.White;
+            this.openLogs.Location = new System.Drawing.Point(132, 207);
+            this.openLogs.Name = "openLogs";
+            this.openLogs.Size = new System.Drawing.Size(101, 27);
+            this.openLogs.TabIndex = 25;
+            this.openLogs.Text = "Open Logs";
+            this.openLogs.Click += new System.EventHandler(this.openLogs_Click);
             // 
             // filesHelp
             // 
@@ -276,72 +350,35 @@
             this.gamesHelp.MouseLeave += new System.EventHandler(this.gamesHelp_MouseLeave);
             this.gamesHelp.MouseHover += new System.EventHandler(this.gamesHelp_MouseHover);
             // 
-            // resetConfigButton
+            // removeAllAccounts
             // 
-            this.resetConfigButton.Animated = true;
-            this.resetConfigButton.BorderColor = System.Drawing.Color.DimGray;
-            this.resetConfigButton.BorderRadius = 5;
-            this.resetConfigButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.resetConfigButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.resetConfigButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.resetConfigButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.resetConfigButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(110)))), ((int)(((byte)(148)))));
-            this.resetConfigButton.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.resetConfigButton.ForeColor = System.Drawing.Color.White;
-            this.resetConfigButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(86)))), ((int)(((byte)(118)))));
-            this.resetConfigButton.Location = new System.Drawing.Point(16, 207);
-            this.resetConfigButton.Name = "resetConfigButton";
-            this.resetConfigButton.Size = new System.Drawing.Size(106, 27);
-            this.resetConfigButton.TabIndex = 23;
-            this.resetConfigButton.Text = "Reset Config";
-            this.resetConfigButton.Click += new System.EventHandler(this.resetConfigButton_Click);
-            // 
-            // clearLogsButton
-            // 
-            this.clearLogsButton.Animated = true;
-            this.clearLogsButton.BorderColor = System.Drawing.Color.DimGray;
-            this.clearLogsButton.BorderRadius = 5;
-            this.clearLogsButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.clearLogsButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.clearLogsButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.clearLogsButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.clearLogsButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(110)))), ((int)(((byte)(148)))));
-            this.clearLogsButton.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.clearLogsButton.ForeColor = System.Drawing.Color.White;
-            this.clearLogsButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(86)))), ((int)(((byte)(118)))));
-            this.clearLogsButton.Location = new System.Drawing.Point(243, 207);
-            this.clearLogsButton.Name = "clearLogsButton";
-            this.clearLogsButton.Size = new System.Drawing.Size(105, 27);
-            this.clearLogsButton.TabIndex = 24;
-            this.clearLogsButton.Text = "Clear Logs";
-            this.clearLogsButton.Click += new System.EventHandler(this.clearLogsButton_Click);
-            // 
-            // guna2Button1
-            // 
-            this.guna2Button1.Animated = true;
-            this.guna2Button1.BorderColor = System.Drawing.Color.DimGray;
-            this.guna2Button1.BorderRadius = 5;
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(110)))), ((int)(((byte)(148)))));
-            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(86)))), ((int)(((byte)(118)))));
-            this.guna2Button1.Location = new System.Drawing.Point(132, 207);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(101, 27);
-            this.guna2Button1.TabIndex = 25;
-            this.guna2Button1.Text = "Open Logs";
+            this.removeAllAccounts.Animated = true;
+            this.removeAllAccounts.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(33)))), ((int)(((byte)(18)))));
+            this.removeAllAccounts.BorderRadius = 5;
+            this.removeAllAccounts.BorderThickness = 1;
+            this.removeAllAccounts.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.removeAllAccounts.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.removeAllAccounts.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.removeAllAccounts.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.removeAllAccounts.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(21)))));
+            this.removeAllAccounts.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.removeAllAccounts.ForeColor = System.Drawing.Color.White;
+            this.removeAllAccounts.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(2)))), ((int)(((byte)(0)))));
+            this.removeAllAccounts.Location = new System.Drawing.Point(15, 240);
+            this.removeAllAccounts.Name = "removeAllAccounts";
+            this.removeAllAccounts.Size = new System.Drawing.Size(332, 27);
+            this.removeAllAccounts.TabIndex = 26;
+            this.removeAllAccounts.Text = "Remove All Accounts";
+            this.removeAllAccounts.Click += new System.EventHandler(this.removeAllAccounts_Click);
             // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.ClientSize = new System.Drawing.Size(360, 288);
-            this.Controls.Add(this.guna2Button1);
+            this.ClientSize = new System.Drawing.Size(360, 313);
+            this.Controls.Add(this.removeAllAccounts);
+            this.Controls.Add(this.openLogs);
             this.Controls.Add(this.clearLogsButton);
             this.Controls.Add(this.resetConfigButton);
             this.Controls.Add(this.filesHelp);
@@ -359,6 +396,7 @@
             this.Controls.Add(this.guna2Separator1);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form3";
             this.ShowInTaskbar = false;
             this.Text = "ArchySteamManager";
@@ -391,6 +429,7 @@
         private System.Windows.Forms.ToolTip toolTip2;
         private Guna.UI2.WinForms.Guna2Button resetConfigButton;
         private Guna.UI2.WinForms.Guna2Button clearLogsButton;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Button openLogs;
+        private Guna.UI2.WinForms.Guna2Button removeAllAccounts;
     }
 }

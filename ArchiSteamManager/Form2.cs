@@ -36,7 +36,7 @@ namespace ArchiSteamManager
         {
         }
 
-        public void SelectFolder()
+        public void SelectFolder(int form)
         {
             using (var dialog = new FolderBrowserDialog())
             {
@@ -63,11 +63,17 @@ namespace ArchiSteamManager
                         };
 
                         File.WriteAllText(configFilePath, Newtonsoft.Json.JsonConvert.SerializeObject(configData, Newtonsoft.Json.Formatting.Indented));
+                        if (form == 2)
+                        {
+                            this.Close();
+                            Form1 form1 = new Form1();
+                            form1.Show();
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Invalid foler");
-                        SelectFolder();
+                        MessageBox.Show("Invalid folder. Select ArchiSteamFarm folder", "Error", MessageBoxButtons.OK ,MessageBoxIcon.Error);
+                        SelectFolder(2);
                     }
                 }
             }
@@ -75,10 +81,7 @@ namespace ArchiSteamManager
 
         private void SetupButton_Click(object sender, EventArgs e)
         {
-            SelectFolder();
-            this.Close();
-            Form1 form1 = new Form1();
-            form1.Show();
+            SelectFolder(2);
         }
 
         private void minimizeButton_Click(object sender, EventArgs e)

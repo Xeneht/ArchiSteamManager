@@ -28,11 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             this.SetupButton = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.minimizeButton = new Guna.UI2.WinForms.Guna2Button();
             this.closeButton = new Guna.UI2.WinForms.Guna2Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.guna2Panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // SetupButton
@@ -48,9 +51,9 @@
             this.SetupButton.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.SetupButton.ForeColor = System.Drawing.Color.White;
             this.SetupButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(86)))), ((int)(((byte)(118)))));
-            this.SetupButton.Location = new System.Drawing.Point(184, 326);
+            this.SetupButton.Location = new System.Drawing.Point(60, 372);
             this.SetupButton.Name = "SetupButton";
-            this.SetupButton.Size = new System.Drawing.Size(242, 48);
+            this.SetupButton.Size = new System.Drawing.Size(281, 48);
             this.SetupButton.TabIndex = 1;
             this.SetupButton.Text = "Setup";
             this.SetupButton.Click += new System.EventHandler(this.SetupButton_Click);
@@ -65,7 +68,7 @@
             this.guna2Panel1.ShadowDecoration.BorderRadius = 0;
             this.guna2Panel1.ShadowDecoration.Depth = 10;
             this.guna2Panel1.ShadowDecoration.Enabled = true;
-            this.guna2Panel1.Size = new System.Drawing.Size(610, 25);
+            this.guna2Panel1.Size = new System.Drawing.Size(400, 25);
             this.guna2Panel1.TabIndex = 10;
             this.guna2Panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Drag);
             // 
@@ -101,27 +104,40 @@
             this.closeButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.closeButton.Image = global::ArchiSteamManager.Properties.Resources.closeIcon;
             this.closeButton.ImageSize = new System.Drawing.Size(25, 25);
-            this.closeButton.Location = new System.Drawing.Point(585, 0);
+            this.closeButton.Location = new System.Drawing.Point(375, 0);
             this.closeButton.Name = "closeButton";
             this.closeButton.Size = new System.Drawing.Size(25, 25);
             this.closeButton.TabIndex = 7;
             this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::ArchiSteamManager.Properties.Resources.ArchiSteamManagerLogo;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Location = new System.Drawing.Point(60, 67);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(281, 261);
+            this.pictureBox1.TabIndex = 11;
+            this.pictureBox1.TabStop = false;
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(21)))));
-            this.ClientSize = new System.Drawing.Size(610, 476);
+            this.ClientSize = new System.Drawing.Size(400, 460);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.SetupButton);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ArchySteamManager";
             this.Load += new System.EventHandler(this.Form2_Load);
             this.guna2Panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -132,5 +148,6 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2Button minimizeButton;
         private Guna.UI2.WinForms.Guna2Button closeButton;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

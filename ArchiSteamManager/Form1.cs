@@ -54,7 +54,7 @@ namespace ArchiSteamManager
             return false;
         }
 
-        private string configFolderPath()
+        public string configFolderPath()
         {
             string configFileContent = File.ReadAllText(configFile);
             JObject configJson = JObject.Parse(configFileContent);
@@ -90,14 +90,14 @@ namespace ArchiSteamManager
             }
         }
 
-        private void LogAction(string action, string filePath)
+        public void LogAction(string action, string filePath)
         {
             string logFilePath = Path.Combine(appDataPath, "logs.txt");
             string logEntry = $"{DateTime.Now} - {action} {filePath}";
             File.AppendAllText(logFilePath, logEntry + Environment.NewLine);
         }
 
-        private void LogError(string errorMessage)
+        public void LogError(string errorMessage)
         {
             string logFilePath = Path.Combine(appDataPath, "logs.txt");
 
@@ -243,7 +243,7 @@ namespace ArchiSteamManager
                                 {
                                     string jsonData = File.ReadAllText(botFile);
                                     JObject botJson = JObject.Parse(jsonData);
-                                    throw new Exception("Simulated error during export");
+
 
                                     string steamLogin = botJson["SteamLogin"]?.ToString();
                                     string steamPassword = botJson["SteamPassword"]?.ToString();
@@ -265,9 +265,8 @@ namespace ArchiSteamManager
                                 }
                             }
                         }
-
-                        MessageBox.Show("Accounts have been exported successfully.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         LogAction($"Exported {uniqueAccounts.Count} accounts to", $"{exportFilePath}");
+                        MessageBox.Show($"Exported {uniqueAccounts.Count} accounts", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
                     {
@@ -350,6 +349,7 @@ namespace ArchiSteamManager
             LogAction("Operation Completed", $"Unique Accounts: {uniqueCount} | Removed Duplicates: {removedCount}");
         }
 
+
         private void minimizeButton_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
@@ -365,6 +365,41 @@ namespace ArchiSteamManager
             Process.Start("https://github.com/Xeneht");
         }
 
+        private void removeAllAccounts_Click(object sender, EventArgs e)
+        {
+            string configFolder = configFolderPath();
 
+            DialogResult confirmationResult = MessageBox.Show("Are you sure you want to remove all accounts? This action cannot be undone.", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (confirmationResult == DialogResult.Yes)
+            {
+                try
+                {
+                    DirectoryInfo directory = new DirectoryInfo(configFolder);
+                    LogAction("Removing all accounts on", configFolder);
+                    int filesDeleted = 0;
+                    foreach (FileInfo file in directory.GetFiles("*.json"))
+                    {
+                        LogAction("Removing file", file.FullName);
+                        file.Delete();
+                        filesDeleted++;
+                    }
+
+                    foreach (FileInfo file in directory.GetFiles("*.db"))
+                    {
+                        LogAction("Removing file", file.FullName);
+                        file.Delete();
+                        filesDeleted++;
+                    }
+                    LogError($"Removed {filesDeleted} account files on {configFolder}");
+                    MessageBox.Show($"{filesDeleted} account files have been removed successfully.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    LogError($"Error while removing accounts: {ex.Message}");
+                    MessageBox.Show("An error occurred while removing accounts. Please check the logs for more details.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
     }
 }
