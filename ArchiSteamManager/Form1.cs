@@ -364,42 +364,5 @@ namespace ArchiSteamManager
         {
             Process.Start("https://github.com/Xeneht");
         }
-
-        private void removeAllAccounts_Click(object sender, EventArgs e)
-        {
-            string configFolder = configFolderPath();
-
-            DialogResult confirmationResult = MessageBox.Show("Are you sure you want to remove all accounts? This action cannot be undone.", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-            if (confirmationResult == DialogResult.Yes)
-            {
-                try
-                {
-                    DirectoryInfo directory = new DirectoryInfo(configFolder);
-                    LogAction("Removing all accounts on", configFolder);
-                    int filesDeleted = 0;
-                    foreach (FileInfo file in directory.GetFiles("*.json"))
-                    {
-                        LogAction("Removing file", file.FullName);
-                        file.Delete();
-                        filesDeleted++;
-                    }
-
-                    foreach (FileInfo file in directory.GetFiles("*.db"))
-                    {
-                        LogAction("Removing file", file.FullName);
-                        file.Delete();
-                        filesDeleted++;
-                    }
-                    LogError($"Removed {filesDeleted} account files on {configFolder}");
-                    MessageBox.Show($"{filesDeleted} account files have been removed successfully.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                catch (Exception ex)
-                {
-                    LogError($"Error while removing accounts: {ex.Message}");
-                    MessageBox.Show("An error occurred while removing accounts. Please check the logs for more details.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-        }
     }
 }
