@@ -157,7 +157,7 @@ namespace ArchiSteamManager
         private void gamesHelp_MouseHover(object sender, EventArgs e)
         {
             Point mousePosition = PointToClient(MousePosition);
-            toolTip1.Show("Add game ids separated by comma. You can find ids on https://steam.db", this, mousePosition.X - 10, mousePosition.Y - 30);
+            toolTip1.Show("Add game ids separated by comma. You can find ids on https://steamdb.info/", this, mousePosition.X - 10, mousePosition.Y - 30);
         }
 
         private void gamesHelp_MouseLeave(object sender, EventArgs e)
@@ -251,9 +251,12 @@ namespace ArchiSteamManager
 
                         foreach (FileInfo file in directory.GetFiles("*.db"))
                         {
-                            form1.LogAction("Removing file", file.FullName);
-                            file.Delete();
-                            filesDeleted++;
+                            if (file.Name != "ASF.db")
+                            {
+                                form1.LogAction("Removing file", file.FullName);
+                                file.Delete();
+                                filesDeleted++;
+                            }
                         }
                         form1.LogError($"Removed {filesDeleted} account files on {configFolder}");
                         MessageBox.Show($"{filesDeleted} account files have been removed successfully.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
