@@ -1,4 +1,4 @@
-![ArchiSteamManagerLarge](https://github.com/Xeneht/ArchiSteamManager/assets/99096857/bc6261f5-97a5-440b-a759-353f8f2d87b8)
+![ArchiSteamManagerLarge](https://github.com/Xeneht/ArchiSteamManager/assets/99096857/d9e03341-8285-495a-aaba-86653ea1d787)
 
 <hr style="border-radius: 2%; margin-top: 60px; margin-bottom: 60px;" noshade="" size="20" width="100%">
 
@@ -10,13 +10,14 @@
 </div>
 
 # Setup
-![image](https://github.com/Xeneht/ArchiSteamManager/assets/99096857/d7acf5c4-1799-473a-a01f-84a0b4905a1e)
+![image](https://github.com/Xeneht/ArchiSteamManager/assets/99096857/c7cfc63b-f8bd-4548-8395-8cc019becb03)
+
 - Select ArchiSteamFarm folder (contains the ArchiSteamFarm.exe)
 
 If the folder does not contain a "config" folder try starting ArchiSteamFarm.exe
 
 # Features
-![image](https://github.com/Xeneht/ArchiSteamManager/assets/99096857/39986628-4e5e-4965-ba85-2b31d990f621)
+![image](https://github.com/Xeneht/ArchiSteamManager/assets/99096857/370bf2ca-e596-48f8-925e-7c44ddec521d)
 
 ### Import Account List
 - Select account list user:pass (one per line)
@@ -34,7 +35,7 @@ A text file will be created with all the accounts exported from all json on conf
 - All files will be renamed to have a complete list (If we have accounts from Bot1 to Bot10 and the 3, 5 and 7 are duplicated, the other files will be renamed so that there are no missing numbers, we will finally have from Bot1 to Bot7 as 3 accounts were duplicated)
 
 # Settings
-![image](https://github.com/Xeneht/ArchiSteamManager/assets/99096857/19a475a0-d2e6-4ec2-987c-1958bd956b9b)
+![image](https://github.com/Xeneht/ArchiSteamManager/assets/99096857/67fbb8b4-461e-4866-bec8-07365d2613ab)
 
 ### ArchiSteamFarm Path
 - You can change the folder path manually, but in any case, if the folder is not in place when you start the application, it will ask you to do the setup again
