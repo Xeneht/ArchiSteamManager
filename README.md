@@ -49,21 +49,20 @@ You can find the gameIds at https://steamdb.info/ searching the game, on the tab
 - This is the prefix for the files created when importing accounts, when deleting duplicates, the program will only take into account files with this name
 
 ### Reset Config
-- Config file will be reseted and you will be asked to do the setup again
-
 ⚠️ A confirmation alert will be displayed
+- Config file will be reseted and you will be asked to do the setup again
 
 ### Open Logs
 - Logs file will be opened (Path: Disk:\Users\(Username)\AppData\Roaming\ArchiSteamManager\logs.txt)
 - Log file contains imports, exports, removed duplicates, renamed files and error logs
 
 ### Clear Logs
+⚠️ A confirmation alert will be displayed
 - Logs file will be deleted
 
-⚠️ A confirmation alert will be displayed
-
 ### Remove All Accounts
+⚠️ A confirmation alert will be displayed
 - All .json and .db files will be deleted from the ArchiSteamFarm config path (These files contain steam accounts and tokens)
 - Files Name defined will be ignored, this will remove all the accounts
 
-⚠️ A confirmation alert will be displayed
+
