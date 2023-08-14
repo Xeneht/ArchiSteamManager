@@ -157,7 +157,7 @@ namespace ArchiSteamManager
         private void gamesHelp_MouseHover(object sender, EventArgs e)
         {
             Point mousePosition = PointToClient(MousePosition);
-            toolTip1.Show("Add game ids separated by comma. You can find ids on https://steam.db", this, mousePosition.X - 10, mousePosition.Y - 30);
+            toolTip1.Show("Add game ids separated by comma. You can find ids on https://steamdb.info", this, mousePosition.X - 10, mousePosition.Y - 30);
         }
 
         private void gamesHelp_MouseLeave(object sender, EventArgs e)
