@@ -5,7 +5,7 @@
 <div align="center">
 
 [![Developer](https://img.shields.io/badge/Developer-Xeneht-red.svg?style=flat&logo=github)](https://github.com/Xeneht)
-[![Version](https://img.shields.io/badge/Version-1.0-blue.svg?style=flat&logo=github)](https://github.com/Xeneht/ArchiSteamManager/releases/tag/Download)
+[![Version](https://img.shields.io/badge/Version-1.0.1-blue.svg?style=flat&logo=github)](https://github.com/Xeneht/ArchiSteamManager/releases/tag/Download)
 
 </div>
 
