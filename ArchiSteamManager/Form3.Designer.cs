@@ -50,8 +50,13 @@
             this.filesHelp = new System.Windows.Forms.PictureBox();
             this.gamesHelp = new System.Windows.Forms.PictureBox();
             this.removeAllAccounts = new Guna.UI2.WinForms.Guna2Button();
+            this.formatDropDown = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.formatHelp = new System.Windows.Forms.PictureBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.toolTip3 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.filesHelp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gamesHelp)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.formatHelp)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -141,7 +146,7 @@
             this.closeButton.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.closeButton.ForeColor = System.Drawing.Color.White;
             this.closeButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(86)))), ((int)(((byte)(118)))));
-            this.closeButton.Location = new System.Drawing.Point(16, 273);
+            this.closeButton.Location = new System.Drawing.Point(15, 320);
             this.closeButton.Name = "closeButton";
             this.closeButton.Size = new System.Drawing.Size(333, 31);
             this.closeButton.TabIndex = 14;
@@ -275,7 +280,7 @@
             this.resetConfigButton.ForeColor = System.Drawing.Color.White;
             this.resetConfigButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(21)))));
             this.resetConfigButton.HoverState.ForeColor = System.Drawing.Color.White;
-            this.resetConfigButton.Location = new System.Drawing.Point(16, 207);
+            this.resetConfigButton.Location = new System.Drawing.Point(15, 254);
             this.resetConfigButton.Name = "resetConfigButton";
             this.resetConfigButton.Size = new System.Drawing.Size(106, 27);
             this.resetConfigButton.TabIndex = 23;
@@ -297,7 +302,7 @@
             this.clearLogsButton.ForeColor = System.Drawing.Color.White;
             this.clearLogsButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(21)))));
             this.clearLogsButton.HoverState.ForeColor = System.Drawing.Color.White;
-            this.clearLogsButton.Location = new System.Drawing.Point(243, 207);
+            this.clearLogsButton.Location = new System.Drawing.Point(242, 254);
             this.clearLogsButton.Name = "clearLogsButton";
             this.clearLogsButton.Size = new System.Drawing.Size(105, 27);
             this.clearLogsButton.TabIndex = 24;
@@ -319,7 +324,7 @@
             this.openLogs.ForeColor = System.Drawing.Color.White;
             this.openLogs.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(21)))));
             this.openLogs.HoverState.ForeColor = System.Drawing.Color.White;
-            this.openLogs.Location = new System.Drawing.Point(132, 207);
+            this.openLogs.Location = new System.Drawing.Point(131, 254);
             this.openLogs.Name = "openLogs";
             this.openLogs.Size = new System.Drawing.Size(101, 27);
             this.openLogs.TabIndex = 25;
@@ -364,19 +369,71 @@
             this.removeAllAccounts.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.removeAllAccounts.ForeColor = System.Drawing.Color.White;
             this.removeAllAccounts.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(2)))), ((int)(((byte)(0)))));
-            this.removeAllAccounts.Location = new System.Drawing.Point(15, 240);
+            this.removeAllAccounts.Location = new System.Drawing.Point(14, 287);
             this.removeAllAccounts.Name = "removeAllAccounts";
             this.removeAllAccounts.Size = new System.Drawing.Size(332, 27);
             this.removeAllAccounts.TabIndex = 26;
             this.removeAllAccounts.Text = "Remove All Accounts";
             this.removeAllAccounts.Click += new System.EventHandler(this.removeAllAccounts_Click);
             // 
+            // formatDropDown
+            // 
+            this.formatDropDown.BackColor = System.Drawing.Color.Transparent;
+            this.formatDropDown.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.formatDropDown.BorderRadius = 3;
+            this.formatDropDown.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.formatDropDown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.formatDropDown.FillColor = System.Drawing.Color.Transparent;
+            this.formatDropDown.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(86)))), ((int)(((byte)(118)))));
+            this.formatDropDown.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(86)))), ((int)(((byte)(118)))));
+            this.formatDropDown.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.formatDropDown.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.formatDropDown.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(86)))), ((int)(((byte)(118)))));
+            this.formatDropDown.ItemHeight = 19;
+            this.formatDropDown.Items.AddRange(new object[] {
+            "Bot1",
+            "Bot01",
+            "Bot001",
+            "Bot0001",
+            "Bot00001"});
+            this.formatDropDown.ItemsAppearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(16)))), ((int)(((byte)(16)))));
+            this.formatDropDown.Location = new System.Drawing.Point(15, 220);
+            this.formatDropDown.Name = "formatDropDown";
+            this.formatDropDown.Size = new System.Drawing.Size(333, 25);
+            this.formatDropDown.TabIndex = 27;
+            this.formatDropDown.SelectedIndexChanged += new System.EventHandler(this.formatDropDown_SelectedIndexChanged);
+            // 
+            // formatHelp
+            // 
+            this.formatHelp.BackgroundImage = global::ArchiSteamManager.Properties.Resources.helpIcon;
+            this.formatHelp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.formatHelp.Location = new System.Drawing.Point(111, 201);
+            this.formatHelp.Name = "formatHelp";
+            this.formatHelp.Size = new System.Drawing.Size(15, 15);
+            this.formatHelp.TabIndex = 29;
+            this.formatHelp.TabStop = false;
+            this.formatHelp.MouseLeave += new System.EventHandler(this.formatHelp_MouseLeave);
+            this.formatHelp.MouseHover += new System.EventHandler(this.formatHelp_MouseHover);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label5.Location = new System.Drawing.Point(14, 202);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(96, 13);
+            this.label5.TabIndex = 28;
+            this.label5.Text = "Numeration Format";
+            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.ClientSize = new System.Drawing.Size(360, 313);
+            this.ClientSize = new System.Drawing.Size(360, 363);
+            this.Controls.Add(this.formatHelp);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.formatDropDown);
             this.Controls.Add(this.removeAllAccounts);
             this.Controls.Add(this.openLogs);
             this.Controls.Add(this.clearLogsButton);
@@ -404,6 +461,7 @@
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Drag);
             ((System.ComponentModel.ISupportInitialize)(this.filesHelp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gamesHelp)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.formatHelp)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -431,5 +489,9 @@
         private Guna.UI2.WinForms.Guna2Button clearLogsButton;
         private Guna.UI2.WinForms.Guna2Button openLogs;
         private Guna.UI2.WinForms.Guna2Button removeAllAccounts;
+        private Guna.UI2.WinForms.Guna2ComboBox formatDropDown;
+        private System.Windows.Forms.PictureBox formatHelp;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ToolTip toolTip3;
     }
 }

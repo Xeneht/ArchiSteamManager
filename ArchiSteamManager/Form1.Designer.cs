@@ -38,6 +38,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.githubButton = new System.Windows.Forms.PictureBox();
             this.settingsButton = new System.Windows.Forms.PictureBox();
+            this.progressBar = new Guna.UI2.WinForms.Guna2ProgressBar();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.githubButton)).BeginInit();
@@ -49,10 +50,8 @@
             this.ImportButton.Animated = true;
             this.ImportButton.BorderColor = System.Drawing.Color.DimGray;
             this.ImportButton.BorderRadius = 10;
-            this.ImportButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.ImportButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.ImportButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.ImportButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.ImportButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(110)))), ((int)(((byte)(148)))));
+            this.ImportButton.DisabledState.ForeColor = System.Drawing.Color.White;
             this.ImportButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(110)))), ((int)(((byte)(148)))));
             this.ImportButton.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ImportButton.ForeColor = System.Drawing.Color.White;
@@ -121,10 +120,8 @@
             this.removeDupesButton.Animated = true;
             this.removeDupesButton.BorderColor = System.Drawing.Color.DimGray;
             this.removeDupesButton.BorderRadius = 10;
-            this.removeDupesButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.removeDupesButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.removeDupesButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.removeDupesButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.removeDupesButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(110)))), ((int)(((byte)(148)))));
+            this.removeDupesButton.DisabledState.ForeColor = System.Drawing.Color.White;
             this.removeDupesButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(110)))), ((int)(((byte)(148)))));
             this.removeDupesButton.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.removeDupesButton.ForeColor = System.Drawing.Color.White;
@@ -141,10 +138,8 @@
             this.exportButton.Animated = true;
             this.exportButton.BorderColor = System.Drawing.Color.DimGray;
             this.exportButton.BorderRadius = 10;
-            this.exportButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.exportButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.exportButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.exportButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.exportButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(110)))), ((int)(((byte)(148)))));
+            this.exportButton.DisabledState.ForeColor = System.Drawing.Color.White;
             this.exportButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(110)))), ((int)(((byte)(148)))));
             this.exportButton.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exportButton.ForeColor = System.Drawing.Color.White;
@@ -192,6 +187,16 @@
             this.settingsButton.TabStop = false;
             this.settingsButton.Click += new System.EventHandler(this.settingsButton_Click);
             // 
+            // progressBar
+            // 
+            this.progressBar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(21)))));
+            this.progressBar.Location = new System.Drawing.Point(0, 419);
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(400, 5);
+            this.progressBar.TabIndex = 14;
+            this.progressBar.Text = "guna2ProgressBar1";
+            this.progressBar.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -199,6 +204,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(21)))), ((int)(((byte)(21)))));
             this.ClientSize = new System.Drawing.Size(400, 424);
             this.ControlBox = false;
+            this.Controls.Add(this.progressBar);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.exportButton);
             this.Controls.Add(this.githubButton);
@@ -231,6 +237,7 @@
         private System.Windows.Forms.PictureBox githubButton;
         private Guna.UI2.WinForms.Guna2Button exportButton;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private Guna.UI2.WinForms.Guna2ProgressBar progressBar;
     }
 }
 

@@ -7,12 +7,14 @@ using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using System.Diagnostics;
 using System.Linq;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ArchiSteamManager
 {
     public partial class Form3 : Form
     {
         private string configFile;
+        private string logsFilePath;
 
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
@@ -33,20 +35,30 @@ namespace ArchiSteamManager
         {
             InitializeComponent();
             configFile = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "ArchiSteamManager", "config.json");
+            logsFilePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "ArchiSteamManager", "logs.txt");
         }
 
         private void Form3_Load(object sender, EventArgs e)
         {
+            numerationFormat();
+            updateFormatDropDown();
         }
 
-        private void pathTextBox_Load(object sender, EventArgs e)
+        private string getConfigString(string name)
         {
             string configFileContent = File.ReadAllText(configFile);
             JObject configJson = JObject.Parse(configFileContent);
-            string savedPath = configJson["Path"].ToString();
-            pathTextBox.Text = savedPath;
+            string savedPath = configJson[name].ToString();
+            return savedPath;
         }
 
+        // Load and display the saved path in the textbox
+        private void pathTextBox_Load(object sender, EventArgs e)
+        {
+            pathTextBox.Text = getConfigString("Path");
+        }
+
+        // Change path and update the textbox
         private void changePathButton_Click(object sender, EventArgs e)
         {
             Form2 form2 = new Form2();
@@ -55,11 +67,7 @@ namespace ArchiSteamManager
             Form3_Load(sender, e);
         }
 
-        private void closeButton_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
+        // Updates textbox content on load
         private void gamesTextBox_Load(object sender, EventArgs e)
         {
             try
@@ -88,6 +96,7 @@ namespace ArchiSteamManager
             }
         }
 
+        // Update the saved game ids
         private void changeGamesButton_Click(object sender, EventArgs e)
         {
             try
@@ -123,11 +132,10 @@ namespace ArchiSteamManager
             }
         }
 
+        // Updates textbox content on load
         private void nameTextBox_Load(object sender, EventArgs e)
         {
-            string configFileContent = File.ReadAllText(configFile);
-            JObject configJson = JObject.Parse(configFileContent);
-            nameTextBox.Text = configJson["FileName"].ToString();
+            nameTextBox.Text = getConfigString("FileName");
         }
 
         private void changeNameButton_Click(object sender, EventArgs e)
@@ -147,6 +155,7 @@ namespace ArchiSteamManager
                 string logEntry = $"{DateTime.Now} - File name has been changed from {oldFileName} to {newFileName}";
                 File.AppendAllText(Path.Combine(appDataPath, "logs.txt"), logEntry + Environment.NewLine);
                 nameTextBox_Load(sender, e);
+                updateFormatDropDown();
             }
             catch (Exception ex)
             {
@@ -154,28 +163,118 @@ namespace ArchiSteamManager
             }
         }
 
+        // Hover info displaying
         private void gamesHelp_MouseHover(object sender, EventArgs e)
         {
             Point mousePosition = PointToClient(MousePosition);
             toolTip1.Show("Add game ids separated by comma. You can find ids on https://steamdb.info/", this, mousePosition.X - 10, mousePosition.Y - 30);
         }
 
+        // Hover info hiding
         private void gamesHelp_MouseLeave(object sender, EventArgs e)
         {
             toolTip1.Hide(label1);
         }
 
+        // Hover info displaying
         private void filesHelp_MouseHover(object sender, EventArgs e)
         {
             Point mousePosition = PointToClient(MousePosition);
             toolTip2.Show("The name for the imported accounts files", this, mousePosition.X - 10, mousePosition.Y - 30);
         }
 
+        // Hover info hiding
         private void filesHelp_MouseLeave(object sender, EventArgs e)
         {
             toolTip2.Hide(label1);
         }
 
+        // Hover info displaying
+        private void formatHelp_MouseHover(object sender, EventArgs e)
+        {
+            Point mousePosition = PointToClient(MousePosition);
+            toolTip3.Show("Change the numbering format for the created files", this, mousePosition.X - 10, mousePosition.Y - 30);
+        }
+
+        // Hover info hiding
+        private void formatHelp_MouseLeave(object sender, EventArgs e)
+        {
+            toolTip3.Hide(label1);
+        }
+
+        // Format dropDown shit
+        private void numerationFormat()
+        {
+            try
+            {
+                if (File.Exists(configFile))
+                {
+                    string configFileContent = File.ReadAllText(configFile);
+                    JObject configJson = JObject.Parse(configFileContent);
+
+                    if (configJson["Format"] != null)
+                    {
+                        int format = int.Parse(configJson["Format"].ToString());
+                        formatDropDown.SelectedIndex = format;
+                    }
+                    else
+                    {
+                        configJson["Format"] = 2;
+                        File.WriteAllText(configFile, configJson.ToString());
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("There is no config file");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading Format: " + ex.Message);
+            }
+        }
+
+        // Selected an option on dropdown
+        private void formatDropDown_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (File.Exists(configFile))
+                {
+                    string configFileContent = File.ReadAllText(configFile);
+                    JObject configJson = JObject.Parse(configFileContent);
+
+                    configJson["Format"] = formatDropDown.SelectedIndex;
+                    File.WriteAllText(configFile, configJson.ToString());
+                }
+                else
+                {
+                    MessageBox.Show("There is no config file");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error saving Format: " + ex.Message);
+            }
+        }
+
+        // Dropdown info updating with the filename :)
+        private void updateFormatDropDown()
+        {
+            int currentSelected = formatDropDown.SelectedIndex;
+            string configFileContent = File.ReadAllText(configFile);
+            JObject configJson = JObject.Parse(configFileContent);
+            string fileName = configJson["FileName"].ToString();
+            formatDropDown.Items.Clear();
+            formatDropDown.Items.Add($"{fileName}1");
+            formatDropDown.Items.Add($"{fileName}01");
+            formatDropDown.Items.Add($"{fileName}001");
+            formatDropDown.Items.Add($"{fileName}0001");
+            formatDropDown.Items.Add($"{fileName}00001");
+            formatDropDown.SelectedIndex = currentSelected;
+        }
+
+        // Reset config button
         private void resetConfigButton_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Are you sure you want to reset the config?", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
@@ -192,13 +291,13 @@ namespace ArchiSteamManager
             }
         }
 
+        // Clear logs button
         private void clearLogsButton_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Are you sure you want to delete the log file?", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
 
             if (result == DialogResult.OK)
             {
-                string logsFilePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "ArchiSteamManager", "logs.txt");
 
                 if (File.Exists(logsFilePath))
                 {
@@ -212,9 +311,9 @@ namespace ArchiSteamManager
             }
         }
 
+        // Open logs button
         private void openLogs_Click(object sender, EventArgs e)
         {
-            string logsFilePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "ArchiSteamManager", "logs.txt");
             if (File.Exists(logsFilePath))
             {
                 Process.Start(logsFilePath);
@@ -225,13 +324,14 @@ namespace ArchiSteamManager
             }
         }
 
+        // Remove all accs button
         private void removeAllAccounts_Click(object sender, EventArgs e)
         {
             Form1 form1 = Application.OpenForms.OfType<Form1>().FirstOrDefault();
 
             if (form1 != null)
             {
-                string configFolder = form1.configFolderPath(); // Llama al método público de Form1
+                string configFolder = form1.configFolderPath();
 
                 DialogResult confirmationResult = MessageBox.Show("Are you sure you want to remove all accounts?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
@@ -253,22 +353,27 @@ namespace ArchiSteamManager
                         {
                             if (file.Name != "ASF.db")
                             {
-                                form1.LogAction("Removing file", file.FullName);
+                                form1.LogAction("Removed file", file.FullName);
                                 file.Delete();
                                 filesDeleted++;
                             }
                         }
-                        form1.LogError($"Removed {filesDeleted} account files on {configFolder}");
+                        form1.LogAction($"Removed {filesDeleted} account files on", configFolder);
                         MessageBox.Show($"{filesDeleted} account files have been removed successfully.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
                     {
-                        form1.LogError($"Error while removing accounts: {ex.Message}");
+                        form1.LogError($"Error while removing accounts", ex.Message);
                         MessageBox.Show("An error occurred while removing accounts. Please check the logs for more details.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
         }
 
+        // Close Button
+        private void closeButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

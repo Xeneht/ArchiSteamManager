@@ -28,14 +28,12 @@ namespace ArchiSteamManager
         public Form2()
         {
             InitializeComponent();
+            // Start app config vars
             appDataPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "ArchiSteamManager");
             configFile = Path.Combine(appDataPath, "config.json");
         }
 
-        private void Form2_Load(object sender, EventArgs e)
-        {
-        }
-
+        // Config setup
         public void SelectFolder(int form)
         {
             using (var dialog = new FolderBrowserDialog())
@@ -59,10 +57,13 @@ namespace ArchiSteamManager
                         {
                             Path = selectedPath,
                             Games = new int[] { 730 },
-                            FileName = "Bot"
+                            FileName = "Bot",
+                            Format = 3
                         };
 
+                        // Create the config file with default values and selected path
                         File.WriteAllText(configFilePath, Newtonsoft.Json.JsonConvert.SerializeObject(configData, Newtonsoft.Json.Formatting.Indented));
+
                         if (form == 2)
                         {
                             this.Close();
@@ -72,23 +73,27 @@ namespace ArchiSteamManager
                     }
                     else
                     {
-                        MessageBox.Show("Invalid folder. Select ArchiSteamFarm folder", "Error", MessageBoxButtons.OK ,MessageBoxIcon.Error);
+                        MessageBox.Show("Invalid folder. Select ArchiSteamFarm folder", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         SelectFolder(2);
                     }
                 }
             }
         }
 
+        // Setup button
         private void SetupButton_Click(object sender, EventArgs e)
         {
+            // Call SelectFolder method to initiate the setup process
             SelectFolder(2);
         }
 
+        // Minimize button
         private void minimizeButton_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }
 
+        //  Close button
         private void closeButton_Click(object sender, EventArgs e)
         {
             Application.Exit();
