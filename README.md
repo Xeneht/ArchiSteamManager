@@ -5,7 +5,7 @@
 <div align="center">
 
 [![Developer](https://img.shields.io/badge/Developer-Xeneht-red.svg?style=flat&logo=github)](https://github.com/Xeneht)
-[![Version](https://img.shields.io/badge/Version-1.0.1-blue.svg?style=flat&logo=github)](https://github.com/Xeneht/ArchiSteamManager/releases/tag/Download)
+[![Version](https://img.shields.io/badge/Version-1.2.0-blue.svg?style=flat&logo=github)](https://github.com/Xeneht/ArchiSteamManager/releases/tag/Download)
 
 </div>
 
@@ -17,7 +17,7 @@
 If the folder does not contain a "config" folder try starting ArchiSteamFarm.exe
 
 # Features
-![image](https://github.com/Xeneht/ArchiSteamManager/assets/99096857/370bf2ca-e596-48f8-925e-7c44ddec521d)
+![image](https://github.com/Xeneht/ArchiSteamManager/assets/99096857/f503dd7d-213a-4d74-a8bf-e5eccad43c0e)
 
 ### Import Account List
 - Select account list user:pass (one per line)
@@ -67,3 +67,38 @@ You can find the gameIds at https://steamdb.info/ searching the game, on the tab
 - Files Name defined will be ignored, this will remove all the accounts
 
 
+
+# Changelog
+
+## V1.2.0
+
+**General**
+
+- `Added` - Logging with timestamps.
+- `Improved` - Error handling during initial config file checks.
+
+**Logging**
+
+- `Added` - Timestamps to log entries.
+- `Improved` - Increased logs quantity.
+- `Improved` - Log messages and errors.
+
+**Import Accounts**
+
+- `Added` - Progress bar while importing.
+- `Added` - Implemented background worker for account importing.
+- `Improved` - Error handling.
+- `Improved` - Buttons disabled during import, re-enabled after completion.
+- `Improved` - Shitty code was doing a lot of definitions and calling functions for each account you imported instead of doing it one time only.
+
+**Remove Duplicates**
+
+- `Added` - Progress bar during duplicate removal.
+- `Added` - Implemented background worker for duplicate removal.
+- `Improved` - New duplication removal method (Now exports all accounts, removes duplicates, and re-imports them instead of comparing files to remove duplicates and changing file names)
+- `Improved` - Increased speed for large numbers of files (5x faster processing 1000 account files)
+- `Improved` - Buttons disabled during process, re-enabled after completion.
+
+**Config**
+- `Added` - Numeration format selection dropdown (FileName1/01/001/0001/00001).
+- `Added` - Update format dropdown based on filename configuration.
