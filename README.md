@@ -67,3 +67,38 @@ You can find the gameIds at https://steamdb.info/ searching the game, on the tab
 - Files Name defined will be ignored, this will remove all the accounts
 
 
+
+# Changelog
+
+## V1.2.0
+
+**General**
+
+- `Added` - Logging with timestamps.
+- `Improved` - Error handling during initial config file checks.
+
+**Logging**
+
+- `Added` - Timestamps to log entries.
+- `Improved` - Increased logs quantity.
+- `Improved` - Log messages and errors.
+
+**Import Accounts**
+
+- `Added` - Progress bar while importing.
+- `Added` - Implemented background worker for account importing.
+- `Improved` - Error handling.
+- `Improved` - Buttons disabled during import, re-enabled after completion.
+- `Improved` - Shitty code was doing a lot of definitions and calling functions for each account you imported instead of doing it one time only.
+
+**Remove Duplicates**
+
+- `Added` - Progress bar during duplicate removal.
+- `Added` - Implemented background worker for duplicate removal.
+- `Improved` - New duplication removal method (Now exports all accounts, removes duplicates, and re-imports them instead of comparing files to remove duplicates and changing file names)
+- `Improved` - Increased speed for large numbers of files (5x faster processing 1000 account files)
+- `Improved` - Buttons disabled during process, re-enabled after completion.
+
+**Config**
+- `Added` - Numeration format selection dropdown (FileName1/01/001/0001/00001).
+- `Added` - Update format dropdown based on filename configuration.
