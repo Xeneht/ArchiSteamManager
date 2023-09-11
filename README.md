@@ -17,7 +17,7 @@
 If the folder does not contain a "config" folder try starting ArchiSteamFarm.exe
 
 # Features
-![image](https://github.com/Xeneht/ArchiSteamManager/assets/99096857/f503dd7d-213a-4d74-a8bf-e5eccad43c0e)
+![image](https://github.com/Xeneht/ArchiSteamManager/assets/99096857/370bf2ca-e596-48f8-925e-7c44ddec521d)
 
 ### Import Account List
 - Select account list user:pass (one per line)
@@ -35,7 +35,7 @@ A text file will be created with all the accounts exported from all json on conf
 - All files will be renamed to have a complete list (If we have accounts from Bot1 to Bot10 and the 3, 5 and 7 are duplicated, the other files will be renamed so that there are no missing numbers, we will finally have from Bot1 to Bot7 as 3 accounts were duplicated)
 
 # Settings
-![image](https://github.com/Xeneht/ArchiSteamManager/assets/99096857/67fbb8b4-461e-4866-bec8-07365d2613ab)
+![image](https://github.com/Xeneht/ArchiSteamManager/assets/99096857/f503dd7d-213a-4d74-a8bf-e5eccad43c0e)
 
 ### ArchiSteamFarm Path
 - You can change the folder path manually, but in any case, if the folder is not in place when you start the application, it will ask you to do the setup again
