@@ -9,14 +9,14 @@
 
 </div>
 
-# Setup
+# 🔧 Setup
 ![image](https://github.com/Xeneht/ArchiSteamManager/assets/99096857/c7cfc63b-f8bd-4548-8395-8cc019becb03)
 
 - Select ArchiSteamFarm folder (contains the ArchiSteamFarm.exe)
 
 If the folder does not contain a "config" folder try starting ArchiSteamFarm.exe
 
-# Features
+# 📄 Features
 ![image](https://github.com/Xeneht/ArchiSteamManager/assets/99096857/370bf2ca-e596-48f8-925e-7c44ddec521d)
 
 ### Import Account List
@@ -34,7 +34,7 @@ A text file will be created with all the accounts exported from all json on conf
 - All duplicated accounts on json files will be removed (Only the json files with the file name prefix defined on settings)
 - All files will be renamed to have a complete list (If we have accounts from Bot1 to Bot10 and the 3, 5 and 7 are duplicated, the other files will be renamed so that there are no missing numbers, we will finally have from Bot1 to Bot7 as 3 accounts were duplicated)
 
-# Settings
+# ⚙️ Settings
 ![image](https://github.com/Xeneht/ArchiSteamManager/assets/99096857/f503dd7d-213a-4d74-a8bf-e5eccad43c0e)
 
 ### ArchiSteamFarm Path
@@ -66,9 +66,15 @@ You can find the gameIds at https://steamdb.info/ searching the game, on the tab
 - All .json and .db files will be deleted from the ArchiSteamFarm config path (These files contain steam accounts and tokens)
 - Files Name defined will be ignored, this will remove all the accounts
 
+# 📝 License
 
+1. Personal use permitted.
+2. Modification of code allowed.
+3. Code must remain open source.
+4. Creator credit required in all distributions and modifications.
+5. Commercial use not allowed.
 
-# Changelog
+# 📃 Changelog
 
 ## V1.2.0
 
